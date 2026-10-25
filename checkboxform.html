@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fomulário com Validação em JavaScript</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulário com validação em JavaScript</h2>
+    <form id="myform">
+        <div>
+            <label>Selecione as opcões desejadas:</label>
+            <input type="checkbox" id="opcao1" name="opcao1" value="opcao1">
+            <label for="opcao1">Opção 1</label>
+            <input type="checkbox" id="opcao2" name="opcao2" value="opcao2">
+            <label for="opcao2">Opção 2</label>
+            <input type="checkbox" id="opcao3" name="opcao3" value="opcao3">
+            <label for="opcao3">Opção 3</label>
+            <span id="opcaoError" class="error"></span>
+            
+        </div>
+        <br>
+        <button type="button" onclick="validateForm()">Enviar</button>
+        </form>
+        <script>
+            function validateForm() {
+                const opcaoError = document.getElementById('opcaoError');
+                const opcao1 = document.getElementById('opcao1');
+                const opcao2 = document.getElementById('opcao2');
+                const opcao3 = document.getElementById('opcao3');
+
+                if (!opcao1.checked && !opcao2.checked && !opcao3.checked){
+                    opcaoError.textContent = 'Por favor, selecione pelo menos uma opção.';
+                } else {
+                    opcaoError.textContent = '';
+                    // Aqui você pode enviar o formulário
+                    alert('Formulário válido, enviado com sucesso!');
+                    // Se quiser enviar o formulário, use:
+                    //document.getElementById('myForm').submit;
+                }
+            }
+        </script>
+</body>
+</html>

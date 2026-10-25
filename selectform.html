@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário com Validação em JavaScript</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Formulário com Validação em JavaScript</h2>
+<form id="myForm">
+    <div>
+        <label for="selectBox">Escolha uma opção:</label>
+        <select id="selectBox" name="selectBox">
+            <option value="">Selecione uma opção</option>
+            <option value="opcao1">Opção 1</option>
+            <option value="opcao2">Opção 2</option>
+            <option value="opcao3">Opção 3</option>
+        </select>
+        <span id="selectError" class="error"></span>
+    </div>
+    <br>
+    <button type="button" onclick="validateForm()">Enviar</button>
+</form>
+
+<script>
+    function validateForm() {
+      const selectBox = document.getElementById('selectBox');
+      const selectError = document.getElementById('selectError');
+      let valid = true;
+  
+      if (selectBox.value === '') {
+        selectError.textContent = 'Por favor, selecione uma opção.';
+        valid = false;
+      } else {
+        selectError.textContent = '';
+      }
+  
+      if (valid) {
+        // Aqui você pode enviar o formulário
+        alert('Formulário válido, enviado com sucesso!');
+        // Se quiser enviar o formulário, use:
+        // document.getElementById('myForm').submit();
+      }
+    }
+  </script>
+  
+  </body>
+  </html>
+  

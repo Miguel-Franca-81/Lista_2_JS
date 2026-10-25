@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário com Validação em JavaScript</title>
+<style>
+    .error {
+        color:red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Formulário com Validação em JavaScript</h2>
+<form id="myForm">
+    <div>
+        <label for="datePicker">Selecione uma data:</label><br>
+        <input type="date" id="datePicker" name="datePicker">
+        <span id="dateError" class="error"></span>
+    </div>
+    <br>
+    <button type="button" onclick="validateForm()">Enviar</button>
+</form>
+<script>
+    function validateForm() {
+        const datePicker = document.getElementById('datePicker');
+        const dateError = document.getElementById('dateError');
+        if (!datePicker.value) {
+            dateError.textContent = 'Por favor, selecione uma data.';
+        } else {
+            dateError.textContent = '';
+            // Aqui você pode enviar o formulário
+            alert('Formulário válido, enviado com sucesso!');
+            // Se quiser enviar o formulário, use:
+            // document.getElementById('myForm').submit();
+        }
+    }
+</script>
+
+</body>
+</html>
